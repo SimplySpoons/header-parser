@@ -1,21 +1,18 @@
 'use strict'; // enable 'strict' mode
 
-module.exports = function(app) {
-    app.route('/');
-    app.get('/api/whoami', (req, res) => {
-        var ipaddr = req.headers['x-forwarded-for'] ||
-        
-        req.socket.remoteAddress ||
-        req.connection.socket.remoteAddress ||
-        req.connection.remoteAddress;
-        
-        var userinfo = {
-         'ip-address': req.ipaddr, // request IP Address
-         'language': req.headers["accept-language"].split(",")[0], // request user language
-         'software': req.headers['user-agent'].split("(")[1].split(")")[0] // request user OS
-        };
+var app = require('express')(); // call express
 
-     res.send(userinfo); // send user info
+app.get('/api/whoami', (req, res) => {
 
-    });
-}; 
+  var userinfo = {
+    "ipaddress": req.ip, // request user IP Address
+    "language": req.headers["accept-language"].split(",")[0], // request user language
+    "software": req.headers["user-agent"].split("(")[1].split(")")[0] // request user OS
+  };
+
+  console.log(JSON.stringify(userinfo) + "\n");
+
+  res.set('Content-Type', 'application/json');
+  res.json(userinfo);
+  
+});
