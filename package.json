@@ -12,9 +12,10 @@
   },
   "keywords": [
     "API",
-    "SimplySpoons,"
-    "IP,"
-    "Header,"
+    "SimplySpoons",
+    "IP",
+    "Request",
+    "Header",
     "Parser"
   ],
   "author": "Luke Rossi",
