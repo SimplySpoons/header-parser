@@ -1,10 +1,10 @@
 'use strict'; // enable 'strict' mode
 
 module.exports = function(app) {
-  app.route('/')
-    app.get('/', function(req, res) {
-        
+    app.route('/');
+    app.get(function(req, res) {
         var ipaddr = req.headers['x-forwarded-for'] ||
+        
         req.socket.remoteAddress ||
         req.connection.socket.remoteAddress ||
         req.connection.remoteAddress;
