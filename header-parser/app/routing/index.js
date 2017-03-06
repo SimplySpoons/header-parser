@@ -2,7 +2,7 @@
 
 module.exports = function(app) {
     app.route('/');
-    app.get(function(req, res) {
+    app.get('/api/whoami', (req, res) => {
         var ipaddr = req.headers['x-forwarded-for'] ||
         
         req.socket.remoteAddress ||
