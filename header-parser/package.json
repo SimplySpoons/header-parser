@@ -1,0 +1,29 @@
+{
+  "name": "simplyspoons-header-parser",
+  "version": "1.0.2",
+  "description": "Returns OS, language, and IP Address for the user",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SimplySpoons/header-parser.git"
+  },
+  "keywords": [
+    "API",
+    "SimplySpoons",
+    "IP",
+    "Request",
+    "Header",
+    "Parser"
+  ],
+  "author": "Luke Rossi",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/SimplySpoons/header-parser/issues"
+  },
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}
