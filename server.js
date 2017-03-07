@@ -1,8 +1,8 @@
 'use strict'; // 'strict' mode
 
-var app = express();
 var routes = require('./app/routing/index.js');
-var express = require('express');        
+var express = require('express'); 
+var app = express();
     
 var port = process.env.PORT || 8080;      
 
