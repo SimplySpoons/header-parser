@@ -1,15 +1,29 @@
 {
-  "name": "newdirec",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "simplyspoons-header-parser",
+  "version": "1.0.2",
+  "description": "Returns OS, language, and IP Address for the user",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SimplySpoons/header-parser.git"
+  },
+  "keywords": [
+    "API",
+    "SimplySpoons",
+    "IP",
+    "Request",
+    "Header",
+    "Parser"
+  ],
+  "author": "Luke Rossi",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/SimplySpoons/header-parser/issues"
+  },
   "dependencies": {
-    "express": "^4.14.1",
-    "form-data": "^2.1.2"
+    "express": "^4.13.3"
   }
 }

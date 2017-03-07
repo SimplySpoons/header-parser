@@ -1,27 +1,17 @@
-var server = require('express');
-var app = server();
-var useragent = require('useragent');
+'use strict';
 
-var port = process.env.PORT || 3500;
-
-app.listen(port, function(){
-  console.log("Listening on port: " + port);
-});
-
-app.get('/', function(req, res) {
-  var agent = useragent.parse(req.headers['user-agent']);
-
-  var ipAddr = req.headers["x-forwarded-for"];
-  if (ipAddr){
-    var list = ipAddr.split(",");
-    ipAddr = list[list.length-1];
-  } else {
-    ipAddr = req.connection.remoteAddress;
-  }
-
-  res.json({
-    ip: ipAddr,
-    "language": req.headers['accept-language'].split(',')[0],
-    OS: agent.os.family
-  });
-});
+module.exports = function(app) {
+  app.route('/')
+    .get(function(req, res) {
+      var ip = req.headers['x-forwarded-for'] || 
+     req.connection.remoteAddress || 
+     req.socket.remoteAddress ||
+     req.connection.socket.remoteAddress;
+     var info = {
+         'ip-address': ip,
+         'language': req.headers["accept-language"].split(',')[0],
+         'software': req.headers['user-agent'].split(') ')[0].split(' (')[1]
+     };
+     res.send(info);
+    });
+}; 
