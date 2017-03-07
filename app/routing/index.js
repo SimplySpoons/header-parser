@@ -1,17 +1,22 @@
-'use strict';
+'use strict'; // 'strict' mode
 
 module.exports = function(app) {
-  app.route('/')
-    .get(function(req, res) {
-      var ip = req.headers['x-forwarded-for'] || 
-     req.connection.remoteAddress || 
+  app.get('/', (req, res) => {
+      var ipaddr = req.headers['x-forwarded-for'] || 
+    
      req.socket.remoteAddress ||
-     req.connection.socket.remoteAddress;
-     var info = {
-         'ip-address': ip,
-         'language': req.headers["accept-language"].split(',')[0],
-         'software': req.headers['user-agent'].split(') ')[0].split(' (')[1]
+     req.connection.socket.remoteAddress ||
+     req.connection.remoteAddress;
+     
+     var userinfo = {
+         "software": req.headers["user-agent"].split("(")[1].split(")")[0],
+         'ip-address': ipaddr,
+         "language": req.headers["accept-language"].split(",")[0]
      };
-     res.send(info);
+     
+     console.log(JSON.stringify(userinfo) + "\n");
+
+     res.set('Content-Type', 'application/json');
+     res.send(userinfo);
     });
 }; 
