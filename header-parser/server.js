@@ -1,11 +1,17 @@
-// 'use strict'; // enable 'strict' mode
+'use strict';
 
-// var server = require('express');
-// var app = server();
-// var routes = require('./app/routing/index.js');
+// call the packages we need
+var express    = require('express');        // call express
+var app        = express();                 // define our app using express
+var routes = require('./app/routing/index.js');
+    
+var port = process.env.PORT || 8080;        // set our port
+    
+// The format follows as, alias to use for real path, also allows permission to such path.
+//app.use('/api', express.static(process.cwd() + '/app/api'));
+    
+routes(app);
 
-// var port = process.env.PORT || 8080; //define port
-
-// app.listen(port, function(){
-//   console.log("App is listening on port: " + port); //log the port in console
-// });
+app.listen(port, function() {
+    console.log('Node.js listening on port ' + port);
+});
