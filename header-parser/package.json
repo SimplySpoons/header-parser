@@ -1,29 +1,24 @@
 {
-  "name": "simplyspoons-header-parser",
-  "version": "1.0.2",
+  "name": "request-header-parser-microservice",
+  "version": "1.0.0",
   "description": "Returns OS, language, and IP Address for the user",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SimplySpoons/header-parser.git"
+    "url": "git+https://github.com/simplyspoons/header-parser.git"
   },
-  "keywords": [
-    "API",
-    "SimplySpoons",
-    "IP",
-    "Request",
-    "Header",
-    "Parser"
-  ],
   "author": "Luke Rossi",
   "license": "GPL-2.0",
   "bugs": {
     "url": "https://github.com/SimplySpoons/header-parser/issues"
   },
+  "homepage": "https://github.com/SimplySpoons/header-parser#readme",
   "dependencies": {
-    "express": "^4.13.3"
+    "express": "^4.13.4",
+    "serve-favicon": "^2.3.0"
   }
 }
